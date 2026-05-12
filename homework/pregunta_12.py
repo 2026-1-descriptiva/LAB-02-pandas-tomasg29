@@ -6,9 +6,6 @@ librerias de pandas para resolver las preguntas.
 """
 
 
-from turtle import pd
-
-
 def pregunta_12():
     """
     Construya una tabla que contenga `c0` y una lista separada por ','
@@ -28,9 +25,9 @@ def pregunta_12():
 
     import pandas as pd
 
-    df = pd.read_csv("files/input/tbl2.tsv", sep="\t")
-    df["c5"] = df.apply(lambda row: f"{row['c5a']}:{row['c5b']}", axis=1)
-    df_grouped = df.groupby("c0")["c5"].apply(lambda x: ','.join(map(str, sorted(x)))).reset_index()
-    return df_grouped
+    dataframe = pd.read_csv("files/input/tbl2.tsv", sep="\t")
+    dataframe["c5"] = dataframe.apply(lambda row: f"{row['c5a']}:{row['c5b']}", axis=1)
+    dataframe_grouped = dataframe.groupby("c0")["c5"].apply(lambda x: ','.join(map(str, sorted(x)))).reset_index()
+    return dataframe_grouped
 
 print(pregunta_12())
