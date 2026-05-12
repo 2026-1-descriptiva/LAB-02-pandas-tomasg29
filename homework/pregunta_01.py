@@ -14,3 +14,9 @@ def pregunta_01():
     40
 
     """
+    import pandas as pd
+    
+    dataframe = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    cantidad_filas = dataframe.shape[0]
+
+    return cantidad_filas

@@ -20,3 +20,12 @@ def pregunta_05():
     E    9
     Name: c2, dtype: int64
     """
+    import pandas as pd
+
+    # Cargar el archivo tbl0.tsv
+    dataframe = pd.read_csv("files/input/tbl0.tsv", sep='\t')
+
+    # Obtener el valor máximo de la columna "c2" para cada categoría en "c1"
+    return dataframe.groupby('c1')['c2'].max()
+
+print(pregunta_05())

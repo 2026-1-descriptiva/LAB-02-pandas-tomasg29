@@ -20,3 +20,15 @@ def pregunta_07():
     E    67
     Name: c2, dtype: int64
     """
+
+    import pandas as pd
+
+    # Cargar el archivo tbl0.tsv
+    dataframe = pd.read_csv("files/input/tbl0.tsv", sep='\t')
+
+    # Calcular la suma de la columna "c2" agrupado por la columna "c1"
+    suma_por_categoria = dataframe.groupby('c1')['c2'].sum()
+
+    return suma_por_categoria
+
+print(pregunta_07())

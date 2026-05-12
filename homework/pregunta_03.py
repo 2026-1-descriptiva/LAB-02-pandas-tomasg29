@@ -6,6 +6,9 @@ librerias de pandas para resolver las preguntas.
 """
 
 
+from turtle import pd
+
+
 def pregunta_03():
     """
     ¿Cuál es la cantidad de registros por cada letra de la columna `c1` del
@@ -21,3 +24,10 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    import pandas as pd
+
+    dataframe = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+
+    conteo_por_categoria = dataframe.groupby("c1").size()
+
+    return conteo_por_categoria

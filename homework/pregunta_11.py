@@ -22,3 +22,15 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
+
+    import pandas as pd
+
+    # Cargar el archivo tbl1.tsv
+    dataframe = pd.read_csv("files/input/tbl1.tsv", sep="\t")
+
+    # Agrupar por la columna "c0", ordenar los valores de "c4" y unirlos con ","
+    resultado_agrupado = dataframe.groupby("c0")["c4"].apply(lambda x: ','.join(map(str, sorted(x)))).reset_index()
+
+    return resultado_agrupado
+
+print(pregunta_11())

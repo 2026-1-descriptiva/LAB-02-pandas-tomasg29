@@ -20,3 +20,13 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
+
+    import pandas as pd
+
+    # Cargar el archivo tbl0.tsv
+    dataframe = pd.read_csv("files/input/tbl0.tsv", sep='\t')
+
+    # Calcular el promedio de la columna "c2" agrupado por la columna "c1"
+    promedio_por_categoria = dataframe.groupby('c1')['c2'].mean()
+
+    return promedio_por_categoria
